@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세번째 퀴즈(회원가입)v2</title>
+    <style>
+      /* td:first-child{ */
+      td:nth-child(1){
+        text-align: center;
+      }  
+    </style>
+</head>
+<body>
+    <h3>세번째 퀴즈v2</h3>
+    <hr color="pink">
+    <h3>form control test - 회원가입</h3>
+    <form>
+    <table border="1" width="500">
+        <tr>
+            <td width="110">이름</td>
+            <td><input type="text" placeholder="이름입력" value="나길동"
+                 readonly ></td>
+        </tr>
+        <tr>
+            <td>아이디</td>
+            <td><input type="text" value="gildong"
+                    disabled >
+                <input type="button" value="중복확인">
+            </td>
+        </tr>
+        <tr>
+            <td>비밀번호</td>
+            <td><input type="password"></td>
+        </tr>
+        <tr>
+            <td>비밀번호확인</td>
+            <td><input type="password"></td>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td><input type="radio" name="gender"> 남
+                <input type="radio" name="gender" checked="checked"> 여
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">좋아하는 과일</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="checkbox" name="fruit"> 사과
+                <input type="checkbox" name="fruit" checked> 수박
+                <input type="checkbox" name="fruit"> 딸기
+                <input type="checkbox" name="fruit"> 포도
+            </td>
+        </tr>
+        <tr>
+            <td>이메일</td>
+            <td>
+                <input type="text">@
+                <select>
+                    <option value="lguplus.com">LG유플</option>
+                    <option value="네이버">네이버</option>
+                    <option value="카카오" selected >카카오</option>
+                </select>
+                <input type="text">
+            </td>
+        </tr>
+        <tr>
+            <td>연락처</td>
+            <td>
+                <select multiple>
+                    <option value="02">02</option>
+                    <option value="031">031</option>
+                    <option value="041">041</option>
+                    <option value="064">064</option>
+                </select>
+                -
+                <input type="text" size="4" maxlength="4">
+                -
+                <input type="text" size="4" maxlength="4">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="회원가입">
+                <input type="reset" value="초기화">
+            </td>
+        </tr>
+    </table>
+  </form>
+</body>
+</html>
