@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM조작테스트</title>
+    <script>
+       let cnt=0;
+
+       function urecaPrint(){
+           //미션1
+         //   const d1 = document.getElementById('d1');//d1 자료형: Element
+         //   d1.innerHTML='유레카';
+
+
+         //   //미션2
+         //   const d1 = document.getElementById('d1');//d1 자료형: Element
+         // //   document.createElement("태그명");
+         // //   document.createTextNode("텍스트내용");
+         //   const divNode = document.createElement("div");//<div></div>
+         //   const txtNode =  document.createTextNode("유레카-"+ ++cnt);//유레카
+
+         //   divNode.appendChild(txtNode);//<div>유레카</div>
+
+         //   //문법) 부모노드.appendChild(자식노드);
+         //   d1.appendChild(divNode);/*
+
+
+         //   //미션3
+         //   const d1 = document.getElementById('d1');//d1 자료형: Element
+         //   const divNode = document.createElement("div");//<div></div>
+         // //   divNode.textContent="유레카-"+ ++cnt;//<div>유레카-1</div>
+         // //   divNode.textContent=`유레카-${++cnt}`; //textContent == innerText
+         //   divNode.innerHTML=`유레카-${++cnt} <button>삭제</button>`;
+         //     //<div>유레카-1 <button>삭제</button></div>
+             
+         //   //문법) 부모노드.appendChild(자식노드);
+         //   d1.appendChild(divNode);
+
+           //미션4
+           const d1 = document.getElementById('d1');//d1 자료형: Element
+           const divNode = document.createElement("div");//<div></div>
+           divNode.innerHTML=`유레카-${++cnt} <button onclick="urecaDel(this)">삭제</button>`;
+             /*
+            <div id='d1'> 
+              <div>유레카-1 <button>삭제</button></div>
+              <div>유레카-2 <button>삭제</button></div>
+              <div id='u3'>유레카-3 <button>삭제</button></div>
+            </div>
+            */
+
+           //문법) 부모노드.appendChild(자식노드);
+           d1.appendChild(divNode);
+         }//urecaPrint
+         
+       function urecaDel(btn){
+         
+          //문법) 부모노드.removeChild(자식노드);
+          console.log('call...urecaDel', btn)
+          console.log('call...urecaDel', btn.parentNode)
+          console.log('call...urecaDel', btn.parentNode.parentNode)
+
+          //지우기 방법1)
+         //  btn.parentNode.parentNode.removeChild(btn.parentNode);
+          
+          //지우기 방법2)
+          const d1 = document.getElementById('d1');
+          d1.removeChild(btn.parentNode);
+
+       }
+    </script>
+</head>
+
+<body>
+   <button onclick="urecaPrint()">불금</button><br>
+   <div id="d1"></div>
+</body>
+
+<!-- DOM_mission.html 
+   1. 버튼을 눌렀을때  브라우저에 '유레카'를 출력하시오. 
+
+   2. 버튼을 눌렀을때  브라우저에 '유레카'를 번호와 함께 출력하시오. 
+      유레카-1
+      유레카-2
+      유레카-3
+      유레카-4
+
+   3. 버튼을 눌렀을때  브라우저에 '유레카'를 번호와 함께 출력하시오.  
+      그리고 텍스트 옆에 '삭제'버튼을 함께 출력하시오.
+
+   4. 두번째 삭제버튼을 눌렀을때  누른 삭제버튼과 함께 
+      옆의 텍스트가 삭제되도록 하시오
+
+    유레카-1 <button>삭제</button> <br>
+    유레카-3 <button>삭제</button> <br>
+    유레카-4 <button>삭제</button> <br>      
+   ================================================== 
+    <button>불금</button><br>
+    유레카-1 <button>삭제</button> <br>
+    유레카-3 <button>삭제</button> <br>
+    유레카-4 <button>삭제</button> <br>
+-->
+</html>
