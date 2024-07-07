@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 테스트</title>
+</head>
+<!-- js_test.html -->
+<body>
+    <h3>자바스크립트 테스트</h3>
+    <script>
+        //프로그램 영역
+        var v;
+            v='유레카';
+            v=1000;
+            v=new Date();
+        //변수 데이터 확인!!
+        document.write("<font color=blue>v="+ v +"</font>");//브라우저 출력
+        // alert("v="+ v);//메시지창
+        console.log("콘솔출력 v="+ v);
+        console.log("콘솔출력 v=", v);
+        console.log('변수v의 자료형:', typeof(v) );
+        console.dir(v);
+        console.log('현재시간:', v.getHours(),'시 ', v.getMinutes(),'분');
+    </script>
+</body>
+</html>

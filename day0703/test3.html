@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test3.html(구구단출력)</title>
+    <style>
+       td {
+            /* border: 1px solid black; */
+            padding: 10px;
+        }
+        table{
+            /* border: 1px solid black; */
+            /* border-collapse: collapse; */
+        }
+        div{
+            display: inline-block;
+            width: 80px;
+            height: 20px;
+            /*background-color: aquamarine;
+             border: 1px solid black;
+            margin-bottom: 5px; */
+        }
+    </style>
+</head>
+<!-- test3.html -->
+<body>
+   <script>
+    //  document.write('<h3>구구단</h3>');
+    // var str='<h3>구구 ==> ';' 자동추가
+    //     단</h3>';
+        /*
+          백틱 - 템플릿 리터럴, 템플릿 문자열, ES6(ECMA 2015)에서 추가
+          1. 여러줄 표현 (multi-line지원)
+          2. ${ }표현식을 사용할 수 있음 
+          => 문자열 내에 변수를 포함하여 '+'를 사용하지 않아도 됨
+        */    
+    var str=`<h3>구구
+        단</h3>`;
+    
+    document.write(str)
+    document.write("<table>")
+    for(var i=1; i<=9; i++){
+        document.write("<tr>")
+            for(var dan=2; dan<10; dan++){
+                document.write("<td>"+dan +"*"+ i +"="+ (dan*i) +"</td>" );
+                // document.write("<td>"+dan +"*"+ i +"="+ (dan*i) +"</td>" );
+            }
+        document.write("</tr>")
+    }
+    document.write("</table>")
+    document.write("<hr color=red>")
+    document.write("<pre>")
+        for(var i=1; i<=9; i++){
+            for(var dan=2; dan<10; dan++){
+                //   document.write(dan +"*"+ i +"="+ (dan*i) );
+                document.write(`${dan}*${i}=${dan*i}\t`);
+            }
+            document.write("<br>")
+        }
+    document.write("</pre>")
+    document.write("</pre><hr color=blue>");
+        for(var i=1; i<=9; i++){
+            for(var dan=2; dan<10; dan++){
+                document.write(`<div>${dan}*${i}=${dan*i}</div>`);
+            }
+            document.write("<br>")
+        }
+   </script>
+</body>
+</html>

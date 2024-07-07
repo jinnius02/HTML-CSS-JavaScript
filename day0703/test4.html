@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>test4.html(이미지출력과 이벤트)</title>
+        <script>
+        var flag=true; //상태표현
+        
+        function imageChange(){
+            console.log('call imageChange')
+            var myImg = document.getElementById('myImg');
+            //myImg == <img>엘리먼트
+            // myImg.src="../img/young.jpg";
+       
+           console.log('myImg.src=', myImg.src);
+           //src= "http://127.0.0.1:5500/img/won.jpg"
+           //      0123456789
+           var idx = myImg.src.lastIndexOf('/');
+           var fileName = myImg.src.substring(idx+1);//"won.jpg"
+
+        //    if(myImg.src == '../img/won.jpg')//원빈이미지라면
+        //    if(fileName == 'won.jpg')//원빈이미지라면
+        //     myImg.src="../img/young.jpg";
+        //    else
+        //     myImg.src="../img/won.jpg";
+
+
+           if(flag)//원빈이미지라면
+            myImg.src="../img/young.jpg";
+           else
+            myImg.src="../img/won.jpg";
+
+           flag=!flag;
+
+        }
+    </script>
+</head>
+<!-- test4.html -->
+<body>
+    <h3>이미지변경 이벤트</h3>
+    <hr>
+    <img src="../img/won.jpg" alt="나원빈"
+         width="400" height="300" title="행복"
+         onclick="imageChange()"
+         id="myImg">
+   
+</body>
+</html>
