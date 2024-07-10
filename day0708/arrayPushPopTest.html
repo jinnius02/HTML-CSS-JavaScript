@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- arrayPushPopTest.html -->
+<body>
+
+    <div></div>
+
+    <script>
+        let fruitsArr=['apple', 'strawberry', 'watermelon'];
+
+        let displayArr=[];
+        for(fruit of fruitsArr) {
+            displayArr.push('<li>' + fruit + '</li>');
+        }
+
+        let div = document.querySelector('div');
+        div.innerHTML = '<ul>' + displayArr.join('') + '</ul>';
+
+    </script>
+</body>
+</html>

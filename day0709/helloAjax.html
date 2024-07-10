@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax테스트</title>
+    <script>
+        const xhr = new XMLHttpRequest();
+        
+    function hello(){
+
+        //    xhr.open("HTTP요청방식","요청URL");
+        //    xhr.onreadystatechange = 콜백함수;
+        
+        // xhr.open("GET","http://10.4.2.100:8080/res.jsp");
+
+        //http://127.0.0.1:5502/day0709/helloAjax.html
+        // xhr.open("GET","user.txt");
+        xhr.open("GET","/day0708/ureca.txt");
+        xhr.onreadystatechange = changeDiv;
+        xhr.send(null);
+    }//hello
+    
+    function changeDiv(){
+        // alert('xhr.readyState='+xhr.readyState);
+        
+        //const str='안녕, 유레카';
+        if(xhr.readyState==4 && xhr.status==200){
+          //응답데이터 얻어오기
+          const str = xhr.responseText;
+        
+          //문서조작
+          const div = document.querySelector("div"); //div자료형: Element
+          div.innerHTML=str;
+        }
+      }  
+
+
+      function menuChoice(){
+        xhr.open("GET","http://10.4.2.100:8080/food.jsp");
+        xhr.onreadystatechange = function(){
+          if(xhr.readyState==4 && xhr.status==200){
+            //   const str = xhr.responseText; //str자료형: string
+              const strArr = xhr.responseText.trim().split(','); //strArr자료형: string[]
+
+              let foods='<ul>';
+              strArr.forEach(function(menu){
+                   foods+="<li>"+menu+"</li>"
+              });
+              foods+='</ul>';
+              
+
+              const div = document.querySelector("div"); //div자료형: Element
+              div.innerHTML=foods;
+          }            
+        };
+        xhr.send(null);
+      }//menuChoice
+
+    </script>
+</head>
+<!-- helloAjax.html -->
+<body>
+    <h3>Ajax테스트</h3>
+    <hr>
+    <div></div>
+    <button onclick="hello()">눌러요</button>
+    <button onclick="menuChoice()">희망메뉴</button>
+<!--
+    <미션>
+    '희망메뉴'버튼을 클릭하면 서버에 데이터를 요청하여 
+    현 페이지 div에 순서없는 목록으로 출력하시고.
+    ==> 서버 데이터 페이지 :  food.jsp
+    http://10.4.2.100:8080/food.jsp
+-->
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax테스트</title>
+    <script>
+        const xhr = new XMLHttpRequest();
+        
+        function hello(){
+
+        //    xhr.open("HTTP요청방식","요청URL");
+        //    xhr.onreadystatechange = 콜백함수;
+        
+        xhr.open("GET","http://10.4.2.100:8080/res.jsp");
+        // xhr.open("GET", "user.txt")
+        // xhr.open("GET", "/day0708/ureca.txt")
+        xhr.onreadystatechange = changeDiv;
+        xhr.send(null);
+    }//hello
+    
+    function changeDiv(){
+        // alert('xhr.readyState='+xhr.readyState);
+        
+        //const str='안녕, 유레카';
+        if(xhr.readyState==4 && xhr.status==200){
+          //응답데이터 얻어오기
+          const str = xhr.responseText;
+        
+          //문서조작
+          const div = document.querySelector("div"); //div자료형: Element
+          div.innerHTML=str;
+        }
+      }  
+
+    </script>
+</head>
+<!-- helloAjax.html -->
+<body>
+    <h3>Ajax테스트</h3>
+    <hr>
+    <div></div>
+    <button onclick="hello()">눌러요</button>
+</body>
+</html>
